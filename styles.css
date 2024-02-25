@@ -1,0 +1,415 @@
+/* Reset стилей */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Общие стили */
+body {
+    font-family: Tahoma, sans-serif;
+    line-height: 1.6;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    z-index: 100;
+    border-radius: 5px;
+    width: 500px; /* Устанавливаем ширину в auto */
+    padding-right: 20px; /* Отступ справа */
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu li {
+    margin-bottom: 5px;
+}
+
+.dropdown-menu a {
+    color: #2e6cae;
+    text-decoration: none;
+    transition: color 0.3s ease, background-color 0.3s ease;
+    padding: 5px 10px;
+    display: block;
+}
+
+.dropdown-menu a:hover {
+    background-color: #0056b3;
+    color: #fff;
+}
+
+.logo img {
+    width: 200px; /* Задайте фиксированную ширину логотипа */
+    height: auto; /* Автоматически подстраивайте высоту для сохранения пропорций */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+a {
+    text-decoration: none;
+    color: #2e6cae;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #2e6cae;
+}
+
+/* Фиксированная шапка */
+.fixed-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: whitesmoke; /* Цвет фона шапки */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    background-color: rgba(255, 255, 255, 0.99); /* Прозрачный белый цвет */
+}
+
+.logo {
+    margin-top: 20px; /* Отступ сверху для логотипа */
+    margin-right: 20px;
+}
+
+.nav-links {
+    display: flex;
+    justify-content: center; /* Центрирование по горизонтали */
+    align-items: center; /* Центрирование по вертикали */
+    height: 100%;
+}
+
+.nav-links li {
+    margin-right: 140px; /* Изначальное расстояние между элементами */
+    list-style-type: none; /* Убираем маркеры списка */
+}
+
+/* Медиа-запросы для изменения расстояния между элементами */
+@media screen and (max-width: 768px) {
+    .nav-links li {
+        margin-right: 20px; /* Уменьшаем расстояние между элементами для маленьких экранов */
+    }
+}
+
+/* Медиа-запросы для изменения расстояния между логотипом и элементами */
+@media screen and (max-width: 768px) {
+    .logo {
+        margin-right: 20px; /* Уменьшаем расстояние между логотипом и элементами для маленьких экранов */
+    }
+}
+
+.fixed-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.fixed-header .nav-links {
+    display: flex;
+    align-items: center;
+}
+
+/* Баннер */
+.banner {
+    background-color: #2e6cae;
+    color: #fff;
+    margin-top: 40px;
+    padding: 50px 0; /* Увеличенный верхний и нижний отступы */
+    text-align: center;
+    position: relative;
+}
+
+.banner-title {
+    font-family: Tahoma, sans-serif;
+    font-size: 36px;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.fixed-header + .banner {
+    padding-top: 150px; /* Высота шапки + верхний и нижний отступы баннера */
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: #fff;
+    color: #2e6cae;
+    padding: 10px 20px;
+    border: 2px solid #fff;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    text-decoration: none;
+    margin-top: 20px; /* Отступ между заголовком и кнопкой */
+}
+
+.cta-button:hover {
+    background-color: #0056b3;
+    color: #fff;
+}
+
+.service-item {
+    text-align: center;
+    width: 25%; /* Распределение по 4 колонкам */
+    padding: 0 10px; /* Добавляем немного отступов между элементами */
+    box-sizing: border-box; /* Учитываем padding в ширине */
+}
+
+.service-item .service-icon {
+    width: 60px; /* Уменьшаем размер кружка */
+    height: 60px;
+    border: 2px solid #000;
+    border-radius: 50%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px; /* Уменьшаем расстояние между кружками и заголовками */
+}
+
+.service-item img {
+    max-width: 40px; /* Уменьшаем размер изображения */
+    max-height: 40px;
+}
+
+.services-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap; /* Делаем блоки переносимыми */
+}
+
+
+/* Модальное окно */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
+.modal-content h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.modal-content form {
+    text-align: center;
+}
+
+.modal-content input,
+.modal-content textarea {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.modal-content button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.modal-content button:hover {
+    background-color: #0056b3;
+}
+
+
+/* Основные разделы */
+.section {
+    padding: 50px 0;
+    text-align: center;
+}
+
+.section h2 {
+    font-family: Tahoma, sans-serif;
+    font-size: 24px;
+    margin-bottom: 20px;
+    display: inline-block; /* Для центрирования по горизонтали */
+    background-color: #fff; /* Фон для лучшей читаемости */
+    padding: 10px 20px; /* Отступы */
+    border-radius: 5px; /* Скругление углов */
+}
+
+/* Преимущества */
+#advantages {
+    background-color: #f9f9f9;
+    padding: 50px 0;
+}
+
+.section-title {
+    text-align: center;
+    font-family: Tahoma, sans-serif;
+    margin-bottom: 20px;
+}
+
+.section-subtitle {
+    text-align: center;
+    font-family: Tahoma, sans-serif;
+    font-size: 35px;
+    margin-bottom: 30px;
+}
+
+.advantages-list {
+    display: flex;
+    justify-content: space-between;
+}
+
+.advantage {
+    flex: 0 0 30%;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.advantage-title {
+    font-size: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: inline-block;
+}
+
+.advantage-description {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-top: 10px; /* Отступ текста от заголовка */
+    display: inline-block;
+}
+
+/* Преимущества */
+.circle {
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    width: 60px;
+    height: 60px;
+    background-color: #3498db;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    color: #fff;
+}
+
+.contact-info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.contact-item {
+    flex-basis: calc(50% - 10px);
+    margin-bottom: 20px;
+}
+
+.contact-item h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.contact-item p {
+    font-size: 16px;
+    margin: 0;
+}
+
+.about-content {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+    position: relative; /* Для позиционирования декоративного элемента */
+}
+
+.company-info,
+.company-requisites {
+    flex-basis: calc(50% - 20px);
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 1;
+}
+
+.company-info:after,
+.company-requisites:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 1px; /* Ширина декоративной полоски */
+    background-color: #ccc; /* Цвет декоративной полоски */
+    z-index: 0;
+}
+
+.company-info:after {
+    right: -10px; /* Позиционируем справа от блока информации о компании */
+}
+
+.company-requisites:before {
+    left: -10px; /* Позиционируем слева от блока реквизитов */
+}
+
+
+/* Подвал */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+footer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+footer ul li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+footer ul li:last-child {
+    margin-right: 0;
+}
